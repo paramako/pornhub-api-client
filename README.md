@@ -31,7 +31,7 @@ $client->disableHttpErrorExceptions();
 ```
 
 ### Get ResponseInterface object instead of Paramako\Http\Response
-By using method `disableHttpErrorExceptions` , you will not receive any exceptions at all, but pure responses.
+By using method `disableResponseWrapper` , you will receive raw ResponseInterface object, instead of it`s wrapper.
 ```php
 $client->disableResponseWrapper();
 ```
@@ -60,6 +60,31 @@ Get stars list
 $client->stars()->get();
 ```
 
+### Access the response data
+If response wrapping is enabled (it`s enabled by default), data can be accessed in several ways
+
+As an array
+```php
+$response = $client->categories()->get();
+$categories = $response['categories'];
+
+foreach ($categories as $category) {
+    // do some logic here
+}
+```
+
+Or as an object
+
+```php
+$response = $client->categories()->get();
+$categories = $response->getData()->categories;
+```
+
+Or ResponseInterface object
+```php
+$response = $client->categories()->get();
+$categories = $response->getResponse(); // returns ResponseInterface
+```
 
 ### Example Without Factory
 

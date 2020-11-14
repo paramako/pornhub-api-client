@@ -113,6 +113,19 @@ class Response implements ArrayAccess
     }
 
     /**
+     * Gets the response status code.
+     *
+     * The status code is a 3-digit integer result code of the server's attempt
+     * to understand and satisfy the request.
+     *
+     * @return int status code
+     */
+    public function getStatusCode()
+    {
+        return $this->response->getStatusCode();
+    }
+
+    /**
      * @param ResponseInterface $response
      * @return mixed|null
      */

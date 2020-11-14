@@ -4,12 +4,18 @@ namespace Paramako\Pornhub;
 
 use Paramako\Pornhub\Http\Client;
 use Paramako\Pornhub\Resources\AbstractResource;
+use Paramako\Pornhub\Resources\Categories;
+use Paramako\Pornhub\Resources\Stars;
+use Paramako\Pornhub\Resources\Tags;
 use Paramako\Pornhub\Resources\Videos;
 
 /**
  * Class Factory
  *
  * @method Videos videos()
+ * @method Categories categories()
+ * @method Tags tags()
+ * @method Stars stars()
  *
  * @package Paramako\Pornhub
  */

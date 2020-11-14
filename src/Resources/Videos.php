@@ -43,4 +43,48 @@ final class Videos extends AbstractResource
 
         return $this->client->request('GET', 'search', $payload);
     }
+
+    /**
+     * @param string $videoId
+     * @param string $thumbSize
+     * @return \Paramako\Pornhub\Http\Response|\Psr\Http\Message\ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getById(string $videoId, string $thumbSize = self::PARAM_THUMBSIZE_DEFAULT)
+    {
+        return $this->client->request('GET', 'video_by_id', [
+            'id' => $videoId,
+            'thumbsize' => $thumbSize
+        ]);
+    }
+
+    /**
+     * @param string $videoId
+     * @return \Paramako\Pornhub\Http\Response|\Psr\Http\Message\ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getEmbedCode(string $videoId)
+    {
+        return $this->client->request('GET', 'video_embed_code', ['id' => $videoId]);
+    }
+
+    /**
+     * @param int $page
+     * @return \Paramako\Pornhub\Http\Response|\Psr\Http\Message\ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getDeleted(int $page)
+    {
+        return $this->client->request('GET', 'deleted_videos', ['page' => $page]);
+    }
+
+    /**
+     * @param string $videoId
+     * @return \Paramako\Pornhub\Http\Response|\Psr\Http\Message\ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function isActive(string $videoId)
+    {
+        return $this->client->request('GET', 'is_video_active', ['id' => $videoId]);
+    }
 }

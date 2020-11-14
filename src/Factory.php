@@ -2,10 +2,15 @@
 
 namespace Paramako\Pornhub;
 
-use GuzzleHttp\Client;
+use Paramako\Pornhub\Http\Client;
+use Paramako\Pornhub\Resources\AbstractResource;
+use Paramako\Pornhub\Resources\Videos;
 
 /**
  * Class Factory
+ *
+ * @method Videos videos()
+ *
  * @package Paramako\Pornhub
  */
 final class Factory
@@ -22,9 +27,17 @@ final class Factory
         $this->client = empty($client) ? new Client($config) : $client;
     }
 
-    public function helloworld()
+    /**
+     * Return an instance of a Resource based on the method called.
+     * @param string $name
+     * @param $args
+     * @return AbstractResource
+     */
+    public function __call(string $name, $args): AbstractResource
     {
-        return 'hello';
+        $resource = 'Paramako\\Pornhub\\Resources\\'.ucfirst($name);
+
+        return new $resource($this->client, ...$args);
     }
 
     /**

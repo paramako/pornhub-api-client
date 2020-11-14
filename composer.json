@@ -1,0 +1,23 @@
+{
+    "name": "paramako/pornhub-api-client",
+    "description": "Pornhub api PHP client",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "paramako",
+            "email": "paramako@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Paramako\\Pornhub\\": "src/"
+        }
+    }
+}

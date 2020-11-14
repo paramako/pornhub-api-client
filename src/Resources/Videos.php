@@ -20,7 +20,7 @@ final class Videos extends AbstractResource
      * @return \Paramako\Pornhub\Http\Response|\Psr\Http\Message\ResponseInterface
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function search(
+    public function get(
         string $category = self::PARAM_CATEGORY_DEFAULT,
         int $page = self::PARAM_PAGE_DEFAULT,
         string $search = self::PARAM_SEARCH_DEFAULT,

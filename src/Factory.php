@@ -55,6 +55,26 @@ final class Factory
     }
 
     /**
+     * Do not throw exceptions on client http errors
+     * @return $this
+     */
+    public function disableHttpErrorExceptions(): self
+    {
+        $this->client->setHttpErrors(false);
+        return $this;
+    }
+
+    /**
+     * Requests will return ResponseInterface objects instead of \Paramako\Http\Response
+     * @return $this
+     */
+    public function disableResponseWrapper(): self
+    {
+        $this->client->setWrapResponse(false);
+        return $this;
+    }
+
+    /**
      * @param array $config
      * @param Client|null $client
      * @return static

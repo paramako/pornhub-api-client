@@ -41,28 +41,9 @@ class Client
      * @param array $clientOptions
      * @param Guzzle|null $client
      */
-    public function __construct(array $clientOptions, ?Guzzle $client = null)
+    public function __construct(array $clientOptions = [], ?Guzzle $client = null)
     {
         $this->client = empty($client) ? new Guzzle($clientOptions) : $client;
-    }
-
-    /**
-     * Do not throw exceptions on client http errors
-     */
-    public function disableHttpErrorExceptions(): Client
-    {
-        $this->httpErrors = false;
-        return $this;
-    }
-
-    /**
-     * Requests will return ResponseInterface objects instead of \Paramako\Http\Response
-     * @return $this
-     */
-    public function disableResponseWrapper(): Client
-    {
-        $this->wrapResponse = false;
-        return $this;
     }
 
     /**
@@ -72,6 +53,16 @@ class Client
     public function setHttpErrors(bool $httpErrors): Client
     {
         $this->httpErrors = $httpErrors;
+        return $this;
+    }
+
+    /**
+     * @param bool $wrapResponse
+     * @return Client
+     */
+    public function setWrapResponse(bool $wrapResponse): Client
+    {
+        $this->wrapResponse = $wrapResponse;
         return $this;
     }
 

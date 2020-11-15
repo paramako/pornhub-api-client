@@ -87,7 +87,7 @@ foreach ($categories as $category) {
 
 ```php
 $response = $client->categories()->get();
-$categories = $response->getData()->categories;
+$categories = $response->categories;
 ```
 
 * Or \Psr\Http\Message\ResponseInterface object

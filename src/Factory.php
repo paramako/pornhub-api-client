@@ -21,6 +21,9 @@ use Paramako\Pornhub\Resources\Videos;
  */
 final class Factory
 {
+    /**
+     * @var Client
+     */
     private Client $client;
 
     /**

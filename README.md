@@ -30,8 +30,8 @@ By using method `disableHttpErrorExceptions` , you will not receive any exceptio
 $client->disableHttpErrorExceptions();
 ```
 
-### Get ResponseInterface object instead of Paramako\Http\Response
-By using method `disableResponseWrapper` , you will receive raw ResponseInterface object, instead of it`s wrapper.
+### Get \Psr\Http\Message\ResponseInterface object instead of Paramako\Http\Response
+By using method `disableResponseWrapper` , you will receive ResponseInterface object, instead of it`s wrapper.
 ```php
 $client->disableResponseWrapper();
 ```
@@ -80,7 +80,7 @@ $response = $client->categories()->get();
 $categories = $response->getData()->categories;
 ```
 
-* Or ResponseInterface object
+* Or \Psr\Http\Message\ResponseInterface object
 ```php
 $response = $client->categories()->get();
 $categories = $response->getResponse(); // returns ResponseInterface

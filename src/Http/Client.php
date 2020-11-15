@@ -8,7 +8,7 @@ use \GuzzleHttp\Client as Guzzle;
  * Class Client
  * @package Paramako\Pornhub\Http
  */
-class Client
+class Client implements RequestInterface
 {
     /** @var string */
     protected const DEFAULT_URL = 'http://www.pornhub.com/webmasters/';

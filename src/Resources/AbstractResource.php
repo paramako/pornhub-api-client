@@ -3,6 +3,7 @@
 namespace Paramako\Pornhub\Resources;
 
 use Paramako\Pornhub\Http\Client;
+use Paramako\Pornhub\Http\RequestInterface;
 
 /**
  * Class AbstractResource
@@ -36,15 +37,15 @@ abstract class AbstractResource
     protected const PARAM_THUMBSIZE_DEFAULT = self::PARAM_THUMBSIZE_LARGEHD;
 
     /**
-     * @var Client
+     * @var RequestInterface
      */
-    protected Client $client;
+    protected RequestInterface $client;
 
     /**
      * AbstractResource constructor.
-     * @param $client
+     * @param RequestInterface $client
      */
-    public function __construct(Client $client)
+    public function __construct(RequestInterface $client)
     {
         $this->client = $client;
     }

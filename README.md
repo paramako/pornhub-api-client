@@ -50,6 +50,16 @@ Search for videos
 ```php
 $client->videos()->get();
 ```
+
+With search params
+```php
+$category = 'webcam';
+$page = 3;
+$search = 'John Doe';
+
+$client->videos()->get($category, $page, $search);
+```
+
 Get video by video_id
 ```php
 $videoId = 'some_id_here';
